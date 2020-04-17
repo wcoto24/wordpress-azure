@@ -795,12 +795,38 @@ switch ( $action ) {
 		$user_email = '';
 
 		if ( $http_post ) {
-			if ( isset( $_POST['user_login'] ) && is_string( $_POST['user_login'] ) ) {
-				$user_login = $_POST['user_login'];
-			}
+			//if ( isset( $_POST['user_login'] ) && is_string( $_POST['user_login'] ) ) {
+			//	$user_login = $_POST['user_login'];
+			//}
 
 			if ( isset( $_POST['user_email'] ) && is_string( $_POST['user_email'] ) ) {
-				$user_email = wp_unslash( $_POST['user_email'] );
+				$email = wp_unslash( $_POST['user_email'] );
+				$dominio =substr($email , strrpos($email , '@' )+1);
+				if ($dominio=='edulinksa.com' | 
+					$dominio=='portafolio.cr' | 
+					$dominio=='bluesat.cr' |
+					$dominio=='promerica.fi.cr' |  
+					$dominio=='ar-holdings.com' | 
+					$dominio=='sagicor.com' | 
+					$dominio=='confia.co.cr' | 
+					$dominio=='caribehospitality.com' | 
+					$dominio=='marinapezvela.comr' | 
+					$dominio=='avenidaescazu.com' | 
+					$dominio=='plazabratsi.cr' | 
+					$dominio=='elcedral.cr' | 
+					$dominio=='escazuvillage.com' | 
+					$dominio=='lincolnplaza.cr' | 
+					$dominio=='mangoplaza.com' | 
+					$dominio=='c3.cr' | 
+					$dominio=='plazarealcariari.com' | 
+					$dominio=='sanantoniobp.com' | 
+					$dominio=='terminal7-10.com' | 
+					$dominio=='terrazaslindora.com' |
+					)
+			    {
+					$user_login =wp_unslash( $_POST['user_email'] );
+					$user_email = wp_unslash( $_POST['user_email'] );
+				}
 			}
 
 			$errors = register_new_user( $user_login, $user_email );
