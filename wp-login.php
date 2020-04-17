@@ -823,10 +823,10 @@ switch ( $action ) {
 		login_header( __( 'Registration Form' ), '<p class="message register">' . __( 'Register For This Site' ) . '</p>', $errors );
 		?>
 	<form name="registerform" id="registerform" action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post" novalidate="novalidate">
-	<p>
+	<!---<p>
 		<label for="user_login"><?php _e( 'Username' ); ?><br />
 		<input type="text" name="user_login" id="user_login" class="input" value="<?php echo esc_attr( wp_unslash( $user_login ) ); ?>" size="20" autocapitalize="off" /></label>
-	</p>
+	</p>--->
 	<p>
 		<label for="user_email"><?php _e( 'Email' ); ?><br />
 		<input type="email" name="user_email" id="user_email" class="input" value="<?php echo esc_attr( wp_unslash( $user_email ) ); ?>" size="25" /></label>
